@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.HashMap;
+import dto.TaskDTO;
 import java.util.List;
 import java.util.Map;
 
@@ -24,15 +25,15 @@ public class TaskController {
 
 	
 	@Autowired
-	TaskService taskService;
-	
-	@GetMapping(value = "tasks/{idUser}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Map<String, Object>> retrieveTasks(@PathVariable("idUser") Integer idUser) {
-	    List<Task> tasks = taskService.retrieveTasks(idUser);
-	    Map<String, Object> response = new HashMap<>();
-	    response.put("tasks", tasks);
-	    return ResponseEntity.ok(response);
-	}
+    private TaskService taskService;
+
+    @GetMapping(value = "tasks/{idUser}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> retrieveTasks(@PathVariable("idUser") Integer idUser) {
+        List<TaskDTO> tasks = taskService.retrieveTasks(idUser);
+        Map<String, Object> response = new HashMap<>();
+        response.put("tasks", tasks);
+        return ResponseEntity.ok(response);
+    }
 	
 	
 	

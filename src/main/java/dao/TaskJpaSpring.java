@@ -6,12 +6,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import dto.TaskDTO;
 import model.Task;
 
 
-public interface TaskJpaSpring extends JpaRepository<Task,Integer> {
+public interface TaskJpaSpring extends JpaRepository<Task, Integer> {
 
-	@Query("SELECT t FROM Task t WHERE t.user.id = :userId")
-	List<Task> findByUserId(@Param("userId") Integer userId);
-
+    @Query("SELECT new dto.TaskDTO(t.name, t.description, t.dueDate, t.creationDate, t.state) " +
+           "FROM Task t WHERE t.user.id = :userId")
+    List<TaskDTO> findByUserId(@Param("userId") Integer userId);
 }

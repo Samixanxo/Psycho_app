@@ -32,6 +32,8 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    
+    String name;
 
     @Column(nullable = false)
     String description;
