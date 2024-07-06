@@ -10,6 +10,7 @@ import user.Role;
 @NoArgsConstructor
 public class UserDTO {
 	
+	private int id;
 	private String username;
 	private String lastname;
 	private String firstname;

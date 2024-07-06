@@ -12,7 +12,7 @@ import model.Task;
 
 public interface TaskJpaSpring extends JpaRepository<Task, Integer> {
 
-    @Query("SELECT new dto.TaskDTO(t.name, t.description, t.dueDate, t.creationDate, t.state) " +
-           "FROM Task t WHERE t.user.id = :userId")
-    List<TaskDTO> findByUserId(@Param("userId") Integer userId);
+	@Query("SELECT new dto.TaskDTO(t.id, t.name, t.description, t.creationDate, t.dueDate, t.state, new dto.UserDTO(t.user.id, t.user.username, t.user.lastname, t.user.firstname, t.user.country, t.user.role)) " +
+		       "FROM Task t WHERE t.user.id = :userId")
+		List<TaskDTO> findByUserId(@Param("userId") Integer userId);
 }

@@ -27,9 +27,7 @@ public class AuthService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         User user = userRepository.findByUsername(request.getUsername()).orElseThrow();
         String token = jwtService.getToken(user);
-        
-        // Convertir User a UserDTO
-        UserDTO userDTO = new UserDTO(user.getFirstname(), user.getLastname(), user.getUsername(), user.getCountry(), user.getRole());
+        UserDTO userDTO = new UserDTO(user.getId(), user.getUsername(), user.getLastname(), user.getFirstname(), user.getCountry(), user.getRole());
         
         return AuthResponse.builder()
             .token(token)

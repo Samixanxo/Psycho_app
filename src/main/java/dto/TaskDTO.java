@@ -2,24 +2,20 @@ package dto;
 
 import java.time.LocalDate;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class TaskDTO {
+    private Integer id;
     private String name;
     private String description;
-    private LocalDate dueDate;
     private LocalDate creationDate;
-    private boolean state;
-
-    public TaskDTO(String name, String description, LocalDate dueDate, LocalDate creationDate, Boolean state) {
-        this.name = name;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.creationDate = creationDate;
-        this.state = state;
-    }
-
-    // Getters and setters
+    private LocalDate dueDate;
+    private Boolean state;
+    private UserDTO user;
 }

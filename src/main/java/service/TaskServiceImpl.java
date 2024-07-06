@@ -24,6 +24,14 @@ public class TaskServiceImpl implements TaskService{
 
 
 
+	@Override
+	public boolean addTask(Task task) {
+		return dao.addTask(task);
+		
+	}
+
+
+
 	
 
 }

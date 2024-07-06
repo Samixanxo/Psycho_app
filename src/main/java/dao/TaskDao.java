@@ -10,5 +10,8 @@ import model.Task;
 @Service
 public interface TaskDao {
 
+	
 	List<TaskDTO>retrieveTasks(Integer idUser);
+
+	boolean addTask(Task task);
 }

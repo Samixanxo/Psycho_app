@@ -19,4 +19,14 @@ public class TasKDaoImpl implements TaskDao {
 	    public List<TaskDTO> retrieveTasks(Integer idUser) {
 	        return taskJpaSpring.findByUserId(idUser);
 	    }
+
+		@Override
+		public boolean addTask(Task task) {
+			if (task != null) {
+				taskJpaSpring.save(task);
+				return true;
+			} else {
+				return false;
+			}
+		}
 }

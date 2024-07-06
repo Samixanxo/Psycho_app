@@ -9,6 +9,8 @@ public interface TaskService {
 
 	List<TaskDTO>retrieveTasks(Integer idUser);
 
+	boolean addTask(Task task);
+
 	
 
 }
