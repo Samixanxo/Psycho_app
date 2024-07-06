@@ -2,6 +2,7 @@ package controller;
 
 import java.util.HashMap;
 
+import dto.ResponseTaskDTO;
 import dto.TaskDTO;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class TaskController {
 
     @GetMapping(value = "tasks/{idUser}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, Object>> retrieveTasks(@PathVariable("idUser") Integer idUser) {
-        List<TaskDTO> tasks = taskService.retrieveTasks(idUser);
+        List<ResponseTaskDTO> tasks = taskService.retrieveTasks(idUser);
         Map<String, Object> response = new HashMap<>();
         response.put("tasks", tasks);
         return ResponseEntity.ok(response);
@@ -47,7 +48,7 @@ public class TaskController {
     public ResponseEntity<?> create (@RequestBody TaskDTO task)
     {
      Map<String, Object> response = new HashMap<>();
-     User user = userService.getUserFromId(task.getUser().getId());
+     User user = userService.getUserFromId(task.getUserId());
     	if (user == null) {
     		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     	}

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import dto.ResponseTaskDTO;
 import dto.TaskDTO;
 import model.Task;
 
@@ -11,7 +12,7 @@ import model.Task;
 public interface TaskDao {
 
 	
-	List<TaskDTO>retrieveTasks(Integer idUser);
+	List<ResponseTaskDTO>retrieveTasks(Integer idUser);
 
 	boolean addTask(Task task);
 }

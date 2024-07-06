@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.TaskDao;
+import dto.ResponseTaskDTO;
 import dto.TaskDTO;
 import model.Task;
 
@@ -18,7 +19,7 @@ public class TaskServiceImpl implements TaskService{
 
 
 	@Override
-    public List<TaskDTO> retrieveTasks(Integer idUser) {
+    public List<ResponseTaskDTO> retrieveTasks(Integer idUser) {
         return dao.retrieveTasks(idUser);
     }
 

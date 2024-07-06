@@ -3,9 +3,11 @@ package dao;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import dto.ResponseTaskDTO;
 import dto.TaskDTO;
 import model.Task;
 
@@ -16,7 +18,7 @@ public class TasKDaoImpl implements TaskDao {
 	    private TaskJpaSpring taskJpaSpring;
 
 	    @Override
-	    public List<TaskDTO> retrieveTasks(Integer idUser) {
+	    public List<ResponseTaskDTO> retrieveTasks(Integer idUser) {
 	        return taskJpaSpring.findByUserId(idUser);
 	    }
 

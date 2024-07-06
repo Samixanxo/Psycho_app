@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor 
 public class TaskDTO {
     private Integer id;
     private String name;
@@ -17,5 +17,6 @@ public class TaskDTO {
     private LocalDate creationDate;
     private LocalDate dueDate;
     private Boolean state;
-    private UserDTO user;
+    private Integer userId;
+    //private UserDTO user;
 }
